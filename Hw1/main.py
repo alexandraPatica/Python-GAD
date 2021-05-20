@@ -15,5 +15,5 @@ print(even_list)
 odd_list = new_list[1::2]
 print(odd_list)
 
-multiply_of_3 = new_list[2::3]
-print(multiply_of_3)
+multiple_of_3 = new_list[2::3]
+print(multiple_of_3)
