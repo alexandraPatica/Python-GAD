@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block metadata %}
+    <title>Products</title>
+{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }} {{ message.tags }}</p>
+        {% endfor %}
+    {% endif %}
+
+
+
+
+    <ul>
+        {% for product in products %}
+            <li>
+                <h3>{{ product.name }}</h3>
+                <h4>Category: {{ product.category.name }}</h4>
+                <p>Price: {{ product.price }}</p>
+                <p>Quantity: {{ product.quantity }}</p>
+                <p>
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" width="100"/>
+                    {% endif %}
+                </p>
+                <form method="post" action="{% url 'products:add_to_cart' product.id %}">
+               {% csrf_token %}
+               <div>
+                  <label>Quantity</label>
+                  <input type="number" name="quantity" />
+               </div>
+               <input type="submit" value="Add to cart" />
+            </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

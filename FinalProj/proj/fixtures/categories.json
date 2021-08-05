@@ -1,0 +1,16 @@
+[
+  {
+    "model": "category.category",
+    "pk": 1,
+    "fields": {
+      "name": "Category #1"
+    }
+  },
+  {
+    "model": "category.category",
+    "pk": 1,
+    "fields": {
+      "name": "category #2"
+    }
+  }
+]

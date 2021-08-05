@@ -1,0 +1,21 @@
+{% load static %}
+{% load cart %}
+
+<nav>
+    <div class="d-flex align-items-center">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'products:view_all' %}">Products</a>
+            </li>
+            <li>
+                <a href="{% url 'products:add' %}">Add product</a>
+            </li>
+            <li>
+                <a href="{% url 'products:view_cart' %}">View cart ({{ request.session | cart_number }})</a>
+            </li>
+        </ul>
+    </div>
+</nav

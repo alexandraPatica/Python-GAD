@@ -1,0 +1,21 @@
+<html>
+    <head>
+        {% block metadata %}
+        {% endblock %}
+
+        {% block style %}
+        {% endblock %}
+
+        {% block hscript %}
+        {% endblock %}
+    </head>
+    <body>
+        {% include 'navigation.html' %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% block bscript %}
+        {% endblock %}
+    </body>
+</html>

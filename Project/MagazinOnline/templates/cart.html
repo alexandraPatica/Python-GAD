@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load cart %}
+
+{% block content %}
+    {% if not products %}
+        <p>There isn't any product in your cart.</p>
+    {% else %}
+        <ul>
+            {% for product in products %}
+                <li>
+                    {% with p_cart_qty=request.session|product_cart_qty:product.id %}
+                        {{product.name}} - {{product.price}} - {{ p_cart_qty }} - {{ product.price | total_price:p_cart_qty }}
+                    {% endwith %}
+                </li>
+            {% endfor %}
+        </ul>
+        <form method="post" action="{% url 'products:view_cart' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Order Now!" />
+        </form>
+    {% endif %}
+{% endblock %}
